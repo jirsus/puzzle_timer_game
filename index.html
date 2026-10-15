@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0d080b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Puzzle Timer">
+  <meta name="description" content="A countdown for the Midnight Launch puzzle challenge.">
+  <title>Puzzle Timer · Midnight Launch</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/discoball.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-shell">
+    <header><span class="brand-mark"><img src="assets/inbox-brand-sheet.png" alt="Inbox Stores"></span><span class="event-name">Midnight Launch</span></header>
+    <main class="game-panel" data-state="ready">
+      <p class="eyebrow">THE PUZZLE CHALLENGE</p>
+      <h1>Every second is a piece of the puzzle.</h1>
+      <p class="instruction">Start your timer. Solve the puzzle. <strong>Stop when you’re done.</strong></p>
+      <div class="clock" role="timer" aria-label="Time remaining" aria-live="off">
+        <svg class="ring" viewBox="0 0 320 320" aria-hidden="true"><circle class="track" cx="160" cy="160" r="148"/><circle id="progress" class="progress" cx="160" cy="160" r="148" pathLength="1"/></svg>
+        <div class="clock-copy"><span id="timer" class="timer">01:30</span><span id="clock-label" class="clock-label">TIME REMAINING</span></div>
+      </div>
+      <div class="result-area" role="status" aria-live="polite" aria-atomic="true"><p id="result" class="result">Ready when you are.</p><p id="detail" class="detail">90 seconds. Make them count.</p></div>
+      <div class="actions"><button id="toggle" class="primary" type="button">Start</button><button id="reset" class="secondary" type="button" disabled>Reset</button></div>
+      <button id="settings-toggle" class="settings-toggle" type="button" aria-expanded="false" aria-controls="settings">Adjust time <span id="duration-label">1:30</span></button>
+      <form id="settings" class="settings" hidden>
+        <div class="presets" aria-label="Quick durations"><button type="button" data-seconds="60">1:00</button><button type="button" data-seconds="90" aria-pressed="true">1:30</button><button type="button" data-seconds="120">2:00</button><button type="button" data-seconds="180">3:00</button></div>
+        <div class="custom-time"><label>Minutes<input id="minutes" type="number" inputmode="numeric" min="0" max="99" step="1" value="1" required></label><span class="colon">:</span><label>Seconds<input id="seconds" type="number" inputmode="numeric" min="0" max="59" step="1" value="30" required></label><button type="submit">Set time</button></div>
+        <p id="settings-note">Choose 1 second to 99 minutes, 59 seconds.</p>
+      </form>
+    </main>
+  </div>
+  <script src="timer.js"></script>
+</body>
+</html>

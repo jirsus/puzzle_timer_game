@@ -1,5 +1,5 @@
 'use strict';
-const CACHE = 'midnight-puzzle-v1';
+const CACHE = 'midnight-puzzle-v2';
 const FILES = ['./', './index.html', './style.css', './timer.js', './manifest.webmanifest', './assets/inbox-brand-sheet.png', './assets/discoball.svg', './assets/icon-180.png', './assets/icon-192.png', './assets/icon-512.png'];
 self.addEventListener('install', event => { event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(FILES)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', event => { event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('midnight-puzzle-') && key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())); });

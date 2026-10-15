@@ -101,6 +101,7 @@ toggle.addEventListener('click', () => {
     detail.textContent = `${((duration * 1000 - remaining) / 1000).toFixed(1)} seconds used. Nice work.`;
     $('#clock-label').textContent = 'TIME REMAINING';
     toggle.textContent = 'Resume';
+    reset.disabled = false;
     settingsToggle.disabled = false;
     render();
     releaseWakeLock();
